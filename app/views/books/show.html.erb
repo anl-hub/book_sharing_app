@@ -1,0 +1,36 @@
+<h1>Book Info</h1>
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>Pagecount:</strong>
+  <%= @book.pagecount %>
+</p>
+
+<p>
+  <strong>Published:</strong>
+  <%= @book.published %>
+</p>
+
+
+
+<p>
+  <% if @book.user != current_user %>
+    <strong>User:</strong>
+    <%= @book.user.username %>
+  <% else %>
+    This is one of your books.
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Delete', @book, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', books_path %>

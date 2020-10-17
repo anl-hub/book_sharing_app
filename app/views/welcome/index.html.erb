@@ -1,0 +1,25 @@
+<% if user_signed_in? and not @shared_books.empty? %>
+<h1>Shared Books</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Pagecount</th>
+      <th>Username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shared_books.each do |book| %>
+      <tr>
+        <td><%= link_to book.title, book %></td>
+        <td><%= book.author %></td>
+        <td><%= book.pagecount %></td>
+        <td><%= book.user.username %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <p>Welcome to book sharing app. Happy sharing!</p>
+<% end %>
